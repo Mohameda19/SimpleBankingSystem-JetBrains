@@ -1,4 +1,6 @@
-# Write your code here
+# Author: Mohd Ali Jauhar
+# IDE: PyCharm Edu
+# Task: Jetbrains Academy project on Hyperskill
 import random
 import sqlite3
 
@@ -13,14 +15,14 @@ def drop_table():
     conn.commit()
 
 def create_table():
-    cur.execute('CREATE TABLE card ('
+    cur.execute('CREATE TABLE IF NOT EXISTS card ('
                 'id INTEGER,'
                 'number TEXT,'
                 'pin TEXT,'
                 'balance INTEGER DEFAULT 0);')
     conn.commit()
 # drop_table()
-# create_table()
+create_table()
 def add_account(acc_num, acc_pin):
     cur.execute("INSERT INTO card (number, pin) VALUES (?, ?)", (acc_num, acc_pin, ))
     conn.commit()
